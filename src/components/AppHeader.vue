@@ -1,0 +1,103 @@
+<template>
+  <header class="header">
+    <div class="container">
+      <nav class="header__wrapper">
+        <a class="logo" href="#">
+          <svg
+            width="30"
+            height="30"
+            viewBox="0 0 474 363"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M92.9999 0C79.2499 0 68.7859 4.87 59.9529 13.271C51.1209 21.673 44.1979 33.871 39.5389 47.846C33.6519 65.507 31.5859 85.91 32.6519 103.957C33.4708 103.877 34.2913 103.815 35.1129 103.77C43.4929 103.365 51.4299 104.864 58.6069 108.004C72.9619 114.284 84.0429 126.274 92.6639 140.284C107.768 164.827 115.851 196.03 117.624 220.869C231.721 206.646 242.279 206.646 356.377 220.869C358.149 196.029 366.232 164.827 381.336 140.283C389.956 126.274 401.038 114.284 415.393 108.003C423.268 104.559 432.063 103.105 441.348 103.957C442.414 85.91 440.348 65.507 434.461 47.846C429.802 33.87 422.879 21.673 414.047 13.271C405.214 4.87 394.75 0 381 0H92.9999ZM37.9689 121.502C37.2829 121.494 36.5889 121.508 35.8869 121.542C30.2659 121.826 24.0869 123.52 17.0249 127.051C-6.3881 138.758 -9.3241 192.738 31.8449 206.461L36.3499 207.963L67.7899 318H406.21L437.65 207.963L442.154 206.461C483.324 192.738 480.388 138.758 456.974 127.051C442.853 119.99 432.252 120.276 422.607 124.496C412.962 128.716 404.043 137.726 396.664 149.716C381.906 173.7 374 209 374 231V241.195L363.883 239.93C235.883 223.93 238.117 223.93 110.117 239.93L99.9999 241.195V231C99.9999 209 92.0939 173.7 77.3359 149.717C69.9559 137.726 61.0379 128.716 51.3929 124.497C47.1729 122.65 42.7689 121.557 37.9689 121.502V121.502ZM64.7269 336L41.4549 359.271C53.4489 362.51 75.2049 363.034 83.9999 357.605C87.2719 352.91 90.9029 343.069 94.4379 336H64.7269ZM379.563 336C381.057 342.017 386.515 355.12 390 357.605C403.2 363.068 419.904 363.379 432.545 359.271L409.273 336H379.563Z"
+              fill="#663399"
+            />
+          </svg>
+        </a>
+
+        <div class="menu">
+          <ul class="menu__list">
+            <li class="menu__item">
+              <router-link class="menu__link" :to="{ name: 'home' }">
+                Products
+              </router-link>
+            </li>
+            <li class="menu__item">
+              <router-link class="menu__link" :to="{ name: 'about' }">
+                About
+              </router-link>
+            </li>
+            <li class="menu__item">
+              <router-link class="menu__link" :to="{ name: 'cart' }">
+                Cart
+              </router-link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+</template>
+
+<script>
+export default {
+  name: "HelloWorld",
+};
+</script>
+
+
+<style scoped lang="scss">
+.header {
+  &__wrapper {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.menu {
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+
+  &__link {
+    display: block;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 400;
+    color: #000000;
+    transition: 300ms ease;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 1px;
+      left: 0;
+      bottom: -3px;
+      background-color: #000000;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: 300ms ease;
+    }
+
+    &:hover,
+    &.router-link-exact-active {
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
+</style>
